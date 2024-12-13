@@ -1,0 +1,128 @@
+public interface Flyable {
+    void fly();
+    void land();
+}
+
+public interface Waterfowl {
+    void swim();
+}
+
+public interface Hunter {
+    void hunt();
+}
+
+public abstract class Animal {
+    public abstract void makeSound();
+}
+
+public abstract class BirdOfPrey extends Animal implements Hunter {
+    public void huntSmallAnimals() {
+        System.out.println("Птица-хищница охотится на мелких животных!");
+    }
+}
+
+public class Seagull implements Flyable, Waterfowl, Hunter {
+    @Override
+    public void fly() {
+        System.out.println("Чайка парит над морем!");
+    }
+
+    @Override
+    public void land() {
+        System.out.println("Чайка приземляется на пляж!");
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("Чайка качается на волнах!");
+    }
+
+    @Override
+    public void hunt() {
+        System.out.println("Чайка ловит рыбку!");
+    }
+}
+
+public class Duck implements Flyable, Waterfowl {
+    @Override
+    public void fly() {
+        System.out.println("Утка летит над камышами!");
+    }
+
+    @Override
+    public void land() {
+        System.out.println("Утка приземляется в пруду!");
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("Утка плавает в пруду!");
+    }
+}
+
+
+public class Eagle extends BirdOfPrey implements Flyable {
+    @Override
+    public void makeSound() {
+        System.out.println("Орел издает крик!");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("Орел стремительно скользит над горными склонами!");
+    }
+
+    @Override
+    public void land() {
+        System.out.println("Орел приземляется на скалу!");
+    }
+
+    @Override
+    public void hunt() {
+        System.out.println("Орел охотится на мелких животных!");
+    }
+
+    public void soarHigh() {
+        System.out.println("Орел парит высоко в небе!");
+    }
+}
+
+
+public class Swan extends Animal implements Flyable, Waterfowl {
+    @Override
+    public void makeSound() {
+        System.out.println("Лебедь издает мягкий звук!");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("Лебедь взлетает над водой!");
+    }
+
+    @Override
+    public void land() {
+        System.out.println("Лебедь приземляется на воду!");
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("Лебедь плывет!");
+    }
+
+    public void gracefulSwim() {
+        System.out.println("Лебедь изящно плывет по воде!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Eagle eagle = new Eagle();
+        eagle.makeSound();
+        eagle.huntSmallAnimals();
+        eagle.soarHigh();
+
+        Swan swan = new Swan();
+        swan.makeSound();
+        swan.gracefulSwim();
+    }
+}

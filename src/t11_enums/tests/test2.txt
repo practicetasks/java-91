@@ -1,0 +1,19 @@
+
+
+
+enum Planet {
+    EARTH(5.97),
+    MARS(0.642);
+
+    private double mass;
+
+    public Planet(double mass) {
+        this.mass = mass;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println(Planet.EARTH.mass);
+    }
+}

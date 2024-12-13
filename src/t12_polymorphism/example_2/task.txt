@@ -1,0 +1,18 @@
+
+public class Test {
+    public static void main(String[] args) {
+        print(100L);
+    }
+
+    public static void print(int i) {
+        System.out.println(i + " - это число.");
+    }
+
+    public static void print(String s) {
+        System.out.println(s + " - это строка.");
+    }
+
+    public static void print(Object o) {
+        System.out.println(o.toString() + " - это объект.");
+    }
+}
